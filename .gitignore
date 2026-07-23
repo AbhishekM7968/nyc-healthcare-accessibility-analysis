@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+
+# Python caches and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# R workspace files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Editor and temporary files
+*.swp
+*.swo
+*~
+
+# QGIS and GeoPackage temporary files
+*.qgz~
+*.gpkg-wal
+*.gpkg-shm
+
+# Logs and local caches
+*.log
+.cache/
+
+# Large external routing inputs
+*.pbf
+*.osm
+*.osm.gz
+*.zip
+
+# Large generated routing outputs
+*ITINERARIES*.csv
+*TRAVEL_TIME_MATRIX*.csv
+*TIME_MATRIX*.csv

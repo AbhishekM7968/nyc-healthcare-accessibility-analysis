@@ -1,0 +1,43 @@
+OPENSTREETMAP INPUT
+===================
+
+Purpose
+-------
+The routing scripts use an OpenStreetMap PBF file to build the pedestrian and
+street network used by r5py.
+
+Expected filename and location
+------------------------------
+Place the file at:
+
+    <repository-root>/nyc.osm.pbf
+
+The current routing scripts resolve this path from the repository root.
+
+Public source
+-------------
+Geofabrik New York downloads:
+https://download.geofabrik.de/north-america/us/new-york.html
+
+Current statewide PBF download:
+https://download.geofabrik.de/north-america/us/new-york-latest.osm.pbf
+
+Important provenance note
+-------------------------
+The archived project file appears to be an NYC-specific extract, but its
+original download URL and clipping procedure were not recorded. Therefore, the
+Geofabrik New York file is a reproducible replacement source, not proof that it
+is byte-for-byte identical to the file used in the original analysis. It is
+also larger because it covers the whole state.
+
+Archived project copy
+---------------------
+Filename: nyc.osm.pbf
+SHA-256: 0ab7e387d87cddd0e8a1b1ab37f887ace39dcd6adba4650fe2d403cd960fe521
+
+For exact replication, preserve a copy matching this checksum in a durable
+research archive such as Zenodo or OSF and add its permanent URL here. OSM data
+changes over time, so a newly downloaded extract may produce slightly different
+routing results.
+
+This large binary file is intentionally excluded from Git.

@@ -1,0 +1,90 @@
+GTFS INPUTS
+===========
+
+Purpose and placement
+---------------------
+These static GTFS ZIP archives supply transit schedules to r5py. The current
+routing scripts expect the required archives directly in:
+
+    <repository-root>/
+
+Keep the filenames below unchanged unless the routing configuration is updated.
+GTFS publishers update their feeds regularly; official links generally provide
+the newest feed, not the exact historical version used in this analysis. The
+dates and SHA-256 checksums below identify the archived project copies.
+
+Official publisher pages
+------------------------
+MTA developer resources (subway, NYC buses, and LIRR):
+https://www.mta.info/developers
+
+Nassau Inter-County Express (NICE) GTFS page:
+https://www.nicebus.com/Passenger-Information/App-showcase
+
+Suffolk County Transit GTFS page:
+https://suffolkcountyny.gov/Departments/Economic-Development-and-Planning/Transportation/General-Transit-Feed-Specification-Details
+
+FILES USED BY THE CURRENT FIVE-BOROUGH ROUTING CONFIGURATION
+-----------------------------------------------------------
+
+nyc_metro.zip
+  Agency/mode: MTA New York City Transit subway
+  Embedded feed version: 20260526
+  Embedded service dates: 2026-05-26 through 2026-09-07
+  SHA-256: c9c3366cdd16a27b3be8f4fcf3de5433bc65ca744c9c91f7c9cb4ec3267a5f40
+
+gtfs_m.zip
+  Agency/mode: MTA Manhattan bus
+  Embedded service dates: 2026-06-27 through 2026-09-05
+  SHA-256: e020b620469140033feb17691c38e97042a42c0956437333b4c03a8361cfaa36
+
+gtfs_b.zip
+  Agency/mode: MTA Brooklyn bus
+  Embedded service dates: 2026-06-27 through 2026-09-05
+  SHA-256: 2dec79e490ede975dfbcb7b356c698509654db72eb27936eb57e5167a38e3fb5
+
+gtfs_bx.zip
+  Agency/mode: MTA Bronx bus
+  Embedded service dates: 2026-06-27 through 2026-09-05
+  SHA-256: e47c7bd67749048c0c34802084d26d1937f123f2e63bfb94ec8b1395e34bc75d
+
+gtfs_q.zip
+  Agency/mode: MTA Queens bus
+  Embedded service dates: 2026-06-27 through 2026-09-05
+  SHA-256: d721863ae22c512ac494e2d341c4c087791ae925dd3c87a985084b40277e4189
+
+gtfs_si.zip
+  Agency/mode: MTA Staten Island bus
+  Embedded service dates: 2026-06-28 through 2026-09-05
+  SHA-256: 3a7e64f6b851f6aee796801c78c274b933974f161c255a668c83851172f38ef8
+
+gtfslirr.zip
+  Agency/mode: MTA Long Island Rail Road
+  Embedded feed version: 2026-07-02T12:06
+  Embedded service dates: 2026-07-02 through 2026-08-16
+  SHA-256: a8d94e1a2b95cb802041a8b0b82385a3888ba5f21de7511917dd5757dd70d6ac
+
+ARCHIVED BUT NOT USED BY THE CURRENT FIVE-BOROUGH CONFIGURATION
+--------------------------------------------------------------
+
+gtfs_nassau.zip
+  Agency/mode: Nassau Inter-County Express (NICE) bus
+  Embedded service dates: 2026-06-08 through 2026-09-12
+  SHA-256: 9c06c63ce41dff0a8d3fae051953b7967f5b0c3b7e23df0d7b87e04a5c041c88
+
+gtfs_suffolk.zip
+  Agency/mode: Suffolk County Transit bus
+  No feed_info.txt was present in the archived ZIP.
+  SHA-256: c2ac18fccb550f3d5bd11e907f7c9e9c0436cc275b47948bc13652fcf464ffb5
+
+Reproduction notes
+------------------
+1. Download the required feeds from the official publisher pages.
+2. Rename them to the expected filenames above and place them at the repository
+   root, or update the routing scripts' FILES configuration to their locations.
+3. For exact historical replication, use archived files matching the checksums.
+   If those exact files are deposited on Zenodo, OSF, or another permanent
+   archive, add the permanent record URL to this manifest.
+
+These potentially large, frequently changing ZIP archives are intentionally
+excluded from Git.

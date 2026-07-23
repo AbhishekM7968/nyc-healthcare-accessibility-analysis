@@ -1,0 +1,62 @@
+ROUTING OUTPUTS
+===============
+
+These files are generated analysis outputs, not third-party downloads. They are
+excluded from Git because detailed itineraries and full time matrices can be
+very large and can be reproduced from the routing scripts and documented inputs.
+
+Generation scripts
+------------------
+Detailed itineraries:
+    code/routing/routing_algorithm_itineraries.py
+
+Travel-time matrices:
+    code/routing/routing_algorithm_time_matrix.py
+
+How to regenerate
+-----------------
+1. Put nyc.osm.pbf and the required GTFS ZIP files at the repository root, as
+   documented in data/external/osm/osm_locations.txt and
+   data/external/gtfs/gtfs_locations.txt.
+2. Ensure the borough-specific OD-pair input CSV named in each script's FILES
+   dictionary is available at the configured relative path.
+3. Install the project's Python/r5py requirements and a compatible Java runtime.
+4. Set BOROUGH in the relevant script to queens, bronx, brooklyn, manhattan, or
+   staten_island.
+5. From the repository root, run:
+
+       python code/routing/routing_algorithm_itineraries.py
+
+   or:
+
+       python code/routing/routing_algorithm_time_matrix.py
+
+6. Repeat for each required borough. A failure for one borough does not imply
+   that another borough's input files are present or correctly configured.
+
+Expected detailed-itinerary outputs
+-----------------------------------
+generated_outputs/routing/QUEENS_ITINERARIES_V1.csv
+generated_outputs/routing/BX_ITINERARIES_V1.csv
+generated_outputs/routing/B_2100_ITINERARIES.csv
+generated_outputs/routing/M_1200_ITINERARIES.csv
+generated_outputs/routing/SI_ITINERARIES.csv
+
+Expected travel-time-matrix outputs
+-----------------------------------
+generated_outputs/routing/QUEENS_3_OD_TTM.csv
+generated_outputs/routing/BX_6300_TTM.csv
+generated_outputs/routing/B_6300_TRAVEL_TIME_MATRIX.csv
+generated_outputs/routing/M_TIME_TRAVEL_MATRIX.csv
+generated_outputs/routing/redo_travel_times_si.csv
+
+Important reproducibility note
+------------------------------
+Routing results depend on the exact OSM extract, GTFS feed versions, OD inputs,
+r5py/R5 version, Java version, departure date/time, and routing parameters. Pin
+those dependencies and archive exact external inputs if byte-for-byte or
+methodologically exact reproduction is required.
+
+Obsolete, partial, test, or vaguely named outputs are intentionally omitted from
+this public manifest because they are not defined products of the current
+five-borough routing configuration.

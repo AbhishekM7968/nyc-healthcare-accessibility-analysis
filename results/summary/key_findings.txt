@@ -1,0 +1,8 @@
+- The full NYC OLS specification uses 6,347 block groups and has an adjusted R-squared of 0.184, indicating that the included predictors explain a meaningful but limited share of citywide accessibility variation.
+- In the full NYC OLS model, no-vehicle prevalence, public-transit commuting, and tract poverty are positively associated with accessibility, while uninsured, Black non-Hispanic, and Hispanic population shares are negatively associated.
+- NYC quantile results are heterogeneous: the positive no-vehicle coefficient declines from 0.359 at the 25th percentile to 0.081 at the 75th percentile, suggesting a stronger association in lower-accessibility areas.
+- The negative NYC quantile associations for uninsured, Black non-Hispanic, and Hispanic population shares persist across the 25th, median, and 75th percentiles.
+- Queens has the strongest full-model fit among the borough tables (adjusted R-squared 0.293), while Manhattan has the weakest (0.017); relationships therefore vary substantially across boroughs.
+- The full-model no-vehicle coefficient is positive and statistically significant in the Bronx, Brooklyn, Manhattan, and Queens, but is not statistically significant on Staten Island.
+- Age patterns are not uniform: under-18 share is negatively associated with accessibility in the full Bronx, Brooklyn, and Staten Island models, while the age-65-plus coefficient varies in sign and significance across boroughs.
+- Population density is statistically significant in the full NYC, Brooklyn, Manhattan, and Queens tables, but its displayed coefficient rounds to 0.00000; practical interpretation requires the unrounded estimate and the variable's measurement scale.

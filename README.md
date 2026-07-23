@@ -16,17 +16,21 @@ The Entropy Weight Method (EWM) combines those indicators into a single accessib
 
 ![Citywide EWM healthcare accessibility map](figures/maps/citywide/nyc_ewm_map.png)
 
+*Figure 1. Citywide EWM healthcare accessibility scores by census block group. Higher scores, shown in purple, indicate comparatively better public-transit access to hospitals; lower scores are shown in orange.*
+
 ### Spatial clustering of accessibility
 
 ![Getis-Ord Gi* accessibility hot spots and cold spots](figures/maps/citywide/hotspots_map.png)
 
+*Figure 2. Statistically significant spatial clusters of high and low accessibility identified using Getis-Ord Gi\*. Hot spots represent clusters of higher scores, while cold spots represent clusters of lower scores.*
+
 The Getis-Ord Gi* analysis identifies statistically significant clusters rather than simply labeling individual block groups as high or low. Cold spots are concentrations of comparatively lower accessibility, while hot spots are concentrations of higher accessibility.
 
-### Population exposure to accessibility cold spots
+### Above-average accessibility by borough
 
-![Population located in accessibility cold spots by borough](figures/main/coldspot_population.png)
+![Population with above-average accessibility by borough](figures/main/borough_above_average.png)
 
-Cold-spot exposure is most pronounced in Queens and Staten Island, where approximately 44% and 42% of the borough population, respectively, lives in an identified accessibility cold spot. The corresponding shares are lower in the Bronx and Brooklyn, and no Manhattan population is classified within a cold spot in the final analysis.
+*Figure 3. Share of each borough’s population living in census block groups with accessibility scores above the citywide mean. Manhattan has the largest share, followed by Brooklyn and the Bronx; Queens and Staten Island have the smallest shares.*
 
 ## Key findings
 

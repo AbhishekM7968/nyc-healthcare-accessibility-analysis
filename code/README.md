@@ -13,11 +13,36 @@ This folder contains the scripts used to build datasets, calculate transit acces
 
 The EWM calculations are retained in [`../notebooks/ewm/`](../notebooks/ewm/) because they were developed and checked interactively.
 
-## Software
+## Running the code
 
-The Python workflow uses packages including `pandas`, `geopandas`, `statsmodels`, and `r5py`. Routing also requires Java plus local GTFS and OpenStreetMap inputs. The R analyses use packages such as `mgcv`, `gratia`, `ggplot2`, `quantreg`, `modelsummary`, `sf`, `spdep`, and `dplyr`, depending on the script.
+Create the Python environment from the repository root:
 
-Scripts use repository-relative paths where possible. Run them within the repository structure shown in the root README, and consult [`../docs/workflow.md`](../docs/workflow.md) before rerunning the full pipeline.
+```bash
+conda env create -f environment.yml
+conda activate nyc-healthcare-access
+```
+
+The Conda environment includes Python, the geospatial stack, `r5py`, JupyterLab, and OpenJDK 21. A pip alternative is available in `requirements.txt`, but Java must then be installed separately for routing.
+
+The R package list and one-time installation instructions are in [`R_REQUIREMENTS.md`](R_REQUIREMENTS.md). QGIS is required to open the project under `gis/project/`.
+
+Before running an analysis stage, check the repository:
+
+```bash
+python code/validate_repository.py
+```
+
+The pipeline launcher provides a single entry point for the scripted stages that can be run from the committed repository:
+
+```bash
+python code/run_pipeline.py --list
+python code/run_pipeline.py validate
+python code/run_pipeline.py safe --dry-run
+```
+
+`safe` builds the final dataset, validates it, and regenerates the standard charts. Routing, EWM notebooks, GIS preparation, and model estimation remain explicit stages because they require external inputs, manual decisions, or separate software.
+
+Scripts use repository-relative paths where possible. Consult [`../docs/workflow.md`](../docs/workflow.md) before rerunning the analysis.
 
 ## Census API key
 

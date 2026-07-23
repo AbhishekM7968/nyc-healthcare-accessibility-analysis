@@ -1,0 +1,16 @@
+# Core analysis and visualization
+numpy>=1.26
+pandas>=2.2
+requests>=2.31
+matplotlib>=3.8
+statsmodels>=0.14
+
+# Spatial analysis
+geopandas>=0.14
+shapely>=2.0
+libpysal>=4.10
+esda>=2.6
+
+# Routing and notebooks
+r5py
+jupyterlab>=4.0

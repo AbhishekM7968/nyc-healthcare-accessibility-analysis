@@ -8,5 +8,6 @@ This folder explains the research design, data, workflow, and major analytical d
 - [`data_sources.md`](data_sources.md) documents the transit, street-network, hospital, demographic, and spatial datasets.
 - [`workflow.md`](workflow.md) follows the project from raw data through routing, accessibility scoring, spatial analysis, regression, figures, and results.
 - [`research_notes.md`](research_notes.md) records key design choices, assumptions, and limitations.
+- [`licensing.md`](licensing.md) records source-specific attribution and the current reuse status of repository materials.
 
 These documents should be read alongside the folder-specific READMEs. They describe the current repository rather than serving as substitutes for the scripts, data manifests, or model outputs.

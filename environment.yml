@@ -1,0 +1,19 @@
+name: nyc-healthcare-access
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.11
+  - numpy>=1.26
+  - pandas>=2.2
+  - requests>=2.31
+  - matplotlib>=3.8
+  - statsmodels>=0.14
+  - geopandas>=0.14
+  - shapely>=2.0
+  - libpysal>=4.10
+  - esda>=2.6
+  - r5py
+  - openjdk>=21
+  - jupyterlab>=4.0

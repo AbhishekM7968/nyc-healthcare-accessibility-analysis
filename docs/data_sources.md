@@ -13,6 +13,10 @@ periods, official publisher pages, and SHA-256 checksums for the archived
 project copies. Exact reproduction requires the feed versions matching those
 checksums. A current download may produce different routes or travel times.
 
+Users are responsible for reviewing the applicable transit-agency terms before
+redistributing a feed. This repository records source locations and checksums
+but does not relicense agency data.
+
 The configured routing feeds are:
 
 - `nyc_metro.zip`: MTA New York City Transit subway;
@@ -32,6 +36,9 @@ R5 uses `nyc.osm.pbf` for the pedestrian and street network. The file is not
 stored in Git. `data/external/osm/osm_locations.txt` documents the expected
 repository location, the checksum of the archived project copy, and the
 Geofabrik New York download as a reproducible replacement source.
+
+OpenStreetMap data are available under the Open Database License. Maps and
+derived products using OSM should retain appropriate OpenStreetMap attribution.
 
 The original URL and clipping procedure for the NYC-specific archived extract
 were not recorded. A newly downloaded statewide or NYC extract should therefore
@@ -67,6 +74,10 @@ review procedure were not recorded and remain a provenance limitation.
 Demographic measures come from the U.S. Census Bureau 2024 American Community
 Survey five-year estimates, downloaded through the Census API by scripts in
 `code/data_collection/` and `code/preprocessing/`.
+
+The Census API terms request attribution and prohibit implying Census Bureau
+endorsement. The project uses Census data for research and does not claim such
+endorsement.
 
 ### Block-group variables
 
@@ -138,4 +149,3 @@ because its coordinates were implausibly close to zero.
 
 Large GTFS, OSM, detailed itinerary, and travel-time-matrix files are described
 under `data/external/` rather than committed to the repository.
-

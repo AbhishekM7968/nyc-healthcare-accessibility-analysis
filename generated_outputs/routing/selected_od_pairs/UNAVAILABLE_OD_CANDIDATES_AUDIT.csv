@@ -1,0 +1,28 @@
+borough,GEOID,candidate_fid,hospital_facility_id,hospital_facility_name,nearest_rank,travel_time,valid_candidate_count,unavailable_candidate_count,origin_selection_possible,routing_departure,departure_window_minutes,review_note
+bronx,360050019041,1318,1172,Lincoln Medical & Mental Health Center,1,,0,3,False,2026-07-08T08:00:00,10,South Brother Island; no matched ACS demographic record
+bronx,360050019041,1319,1486,Henry J. Carter Specialty Hospital,2,,0,3,False,2026-07-08T08:00:00,10,South Brother Island; no matched ACS demographic record
+bronx,360050019041,1320,1639,Mount Sinai Hospital - Mount Sinai Hospital of Queens,3,,0,3,False,2026-07-08T08:00:00,10,South Brother Island; no matched ACS demographic record
+bronx,360050019042,1315,1172,Lincoln Medical & Mental Health Center,1,,0,3,False,2026-07-08T08:00:00,10,North Brother Island; no matched ACS demographic record
+bronx,360050019042,1316,1164,BronxCare Hospital Center,2,,0,3,False,2026-07-08T08:00:00,10,North Brother Island; no matched ACS demographic record
+bronx,360050019042,1317,1486,Henry J. Carter Specialty Hospital,3,,0,3,False,2026-07-08T08:00:00,10,North Brother Island; no matched ACS demographic record
+bronx,360050110001,82,1185,Montefiore Medical Center - Montefiore Westchester Square,1,,0,3,False,2026-07-08T08:00:00,10,Ferry Point Park; no matched ACS demographic record
+bronx,360050110001,83,1175,Calvary Hospital Inc,2,,0,3,False,2026-07-08T08:00:00,10,Ferry Point Park; no matched ACS demographic record
+bronx,360050110001,84,3058,Montefiore Med Center - Jack D Weiler Hosp of A Einstein College Div,3,,0,3,False,2026-07-08T08:00:00,10,Ferry Point Park; no matched ACS demographic record
+bronx,360050516021,2134,1175,Calvary Hospital Inc,1,,0,3,False,2026-07-08T08:00:00,10,Hart Island; no matched ACS demographic record
+bronx,360050516021,2135,3058,Montefiore Med Center - Jack D Weiler Hosp of A Einstein College Div,2,,0,3,False,2026-07-08T08:00:00,10,Hart Island; no matched ACS demographic record
+bronx,360050516021,2136,1165,Jacobi Medical Center,3,,0,3,False,2026-07-08T08:00:00,10,Hart Island; no matched ACS demographic record
+manhattan,360610001001,11596,1437,New York-Presbyterian/Lower Manhattan Hospital,1,,0,3,False,2026-07-08T08:00:00,10,Liberty Island; ferry-dependent and no matched ACS demographic record
+manhattan,360610001001,11597,9753,NYU Langone Hospital - Joseph S. and Diane H. Steinberg Ambulatory Care Center,2,,0,3,False,2026-07-08T08:00:00,10,Liberty Island; ferry-dependent and no matched ACS demographic record
+manhattan,360610001001,11598,10223,Calvary Hospital,3,,0,3,False,2026-07-08T08:00:00,10,Liberty Island; ferry-dependent and no matched ACS demographic record
+manhattan,360610005001,11611,9753,NYU Langone Hospital - Joseph S. and Diane H. Steinberg Ambulatory Care Center,1,,0,3,False,2026-07-08T08:00:00,10,Governors Island; ferry-dependent and no matched ACS demographic record
+manhattan,360610005001,11612,1437,New York-Presbyterian/Lower Manhattan Hospital,2,,0,3,False,2026-07-08T08:00:00,10,Governors Island; ferry-dependent and no matched ACS demographic record
+manhattan,360610005001,11613,1288,Brooklyn Hospital Center - Downtown Campus,3,,0,3,False,2026-07-08T08:00:00,10,Governors Island; ferry-dependent and no matched ACS demographic record
+queens,360810916031,17218,1294,South Brooklyn Health,1,,2,1,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained
+queens,360810916035,17302,1294,South Brooklyn Health,1,,2,1,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained
+queens,360810916036,17299,1294,South Brooklyn Health,1,,2,1,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained
+queens,360810916041,17311,1294,South Brooklyn Health,1,,2,1,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained
+staten_island,360850181003,18751,1473,RUMC-Bayley Seton,1,,0,3,False,2026-07-08T08:00:00,10,"Populated Todt Hill origin; no route after 180-minute, walking, and automatic-snapping diagnostics"
+staten_island,360850181003,18752,1738,Richmond University Medical Center,2,,0,3,False,2026-07-08T08:00:00,10,"Populated Todt Hill origin; no route after 180-minute, walking, and automatic-snapping diagnostics"
+staten_island,360850181003,18753,10223,Calvary Hospital,3,,0,3,False,2026-07-08T08:00:00,10,"Populated Todt Hill origin; no route after 180-minute, walking, and automatic-snapping diagnostics"
+staten_island,360850208062,19439,1738,Richmond University Medical Center,2,,1,2,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained
+staten_island,360850208062,19440,1473,RUMC-Bayley Seton,3,,1,2,True,2026-07-08T08:00:00,10,Candidate route unavailable; fastest valid candidate retained

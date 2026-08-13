@@ -6,7 +6,7 @@ This folder contains the scripts used to build datasets, calculate transit acces
 
 - `data_collection/` downloads ACS demographic variables.
 - `preprocessing/` cleans demographic data, adds tract variables and population density, merges accessibility scores, and builds the final regression-ready dataset.
-- `routing/` contains the `r5py` travel-time matrix and detailed-itinerary workflows. `routing_map_point_to_point.py` is a test/debug script rather than part of the main pipeline.
+- `routing/` contains the `r5py` travel-time matrix, fastest-valid OD selection, and detailed-itinerary workflows. `routing_map_point_to_point.py` is a test/debug script rather than part of the main pipeline.
 - `regression/` contains citywide and borough OLS models, quantile regression, GAM analysis, VIF checks, and Moran’s I diagnostics for model residuals.
 - `spatial_analysis/` contains the Getis-Ord Gi* hotspot analysis.
 - `visualization/` contains scripts for final charts and the figure runner.
@@ -43,6 +43,38 @@ python code/run_pipeline.py safe --dry-run
 `safe` builds the final dataset, validates it, and regenerates the standard charts. Routing, EWM notebooks, GIS preparation, and model estimation remain explicit stages because they require external inputs, manual decisions, or separate software.
 
 Scripts use repository-relative paths where possible. Consult [`../docs/workflow.md`](../docs/workflow.md) before rerunning the analysis.
+
+### Travel-time analysis
+
+The current travel-time workflow is:
+
+```bash
+python code/routing/routing_algorithm_time_matrix.py \
+  --borough queens \
+  --departure 2026-07-08T08:00:00
+
+python code/routing/select_fastest_od_pairs.py
+```
+
+Repeat the matrix command for `bronx`, `brooklyn`, `manhattan`, and
+`staten_island` before running the selection script. The routing script uses
+the citywide candidate table at
+`gis/layers/routing_inputs/nyc_3_nearest_hospitals_unique.csv`, converts its
+QGIS coordinates from EPSG:3857 to EPSG:4326, and evaluates three candidate
+hospitals per block group. The selection script retains the fastest valid
+candidate and writes compact, shareable outputs under
+`generated_outputs/routing/selected_od_pairs/`.
+
+The optional next stage uses one of those selected files:
+
+```bash
+python code/routing/routing_algorithm_itineraries.py \
+  --borough queens \
+  --departure 2026-07-08T08:00:00
+```
+
+Download and placement instructions for every GTFS archive and the OSM network
+are in [`../data/external/README.md`](../data/external/README.md).
 
 ## Census API key
 

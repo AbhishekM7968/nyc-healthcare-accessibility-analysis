@@ -1,4 +1,6 @@
 {
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "r.rterm.mac": "/Library/Frameworks/R.framework/Resources/bin/R",
-  "r.rpath.mac": "/Library/Frameworks/R.framework/Resources/bin/R"
+  "r.rpath.mac": "/Library/Frameworks/R.framework/Resources/bin/R",
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }

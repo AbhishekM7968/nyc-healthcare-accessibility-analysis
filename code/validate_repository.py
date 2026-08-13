@@ -234,8 +234,14 @@ def check_portability_and_secrets(report: Report) -> None:
 
     personal_hits: list[str] = []
     secret_hits: list[str] = []
+    excluded_directories = {".git", ".venv", "venv", "env", "__pycache__"}
     for path in PROJECT_ROOT.rglob("*"):
-        if not path.is_file() or ".git" in path.parts or path.suffix not in allowed_suffixes:
+        relative_parts = path.relative_to(PROJECT_ROOT).parts
+        if (
+            not path.is_file()
+            or excluded_directories.intersection(relative_parts)
+            or path.suffix not in allowed_suffixes
+        ):
             continue
         if path.resolve() == Path(__file__).resolve():
             continue

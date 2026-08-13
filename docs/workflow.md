@@ -73,12 +73,17 @@ the block-group representative points, or the nearest-hospital candidate list.
 These are documented as GIS preparation steps rather than automated pipeline
 steps.
 
+The resulting portable candidate export is
+`gis/layers/routing_inputs/nyc_3_nearest_hospitals_unique.csv`. It contains
+three candidate rows for each of 6,587 block-group origins and references the
+61 unique routing facilities.
+
 ## 4. Transit routing
 
 Before running the routing scripts:
 
-1. place `nyc.osm.pbf` at the repository root;
-2. place the required GTFS ZIP archives at the repository root;
+1. place `nyc.osm.pbf` under `data/external/local_inputs/osm/`;
+2. place the required GTFS ZIP archives under `data/external/local_inputs/gtfs/`;
 3. provide the configured borough OD candidate CSVs; and
 4. install `r5py`, its Python geospatial dependencies, Java, and a compatible R5
    runtime.
@@ -86,18 +91,37 @@ Before running the routing scripts:
 The expected external filenames are listed in `data/external/gtfs/` and
 `data/external/osm/`.
 
-For each borough, set `BOROUGH` in
-`code/routing/routing_algorithm_time_matrix.py` and run the script. This routes
-the approximately three hospital candidates associated with each block-group
-origin.
+For each borough, run `code/routing/routing_algorithm_time_matrix.py` with
+`--borough`, a GTFS-covered `--departure`, and (optionally) a departure window.
+The script loads three hospital candidates per block-group origin, converts the
+QGIS coordinate attributes from EPSG:3857 to EPSG:4326, and routes each
+candidate using the same citywide subway and bus network. Queens also includes
+LIRR.
 
-The candidate results are then reduced to a selected or fastest OD record. That
-intermediate reduction is not currently implemented as a repository script.
+Example:
+
+```bash
+python code/routing/routing_algorithm_time_matrix.py \
+  --borough queens \
+  --departure 2026-07-08T08:00:00
+```
+
+After all five matrices exist, run:
+
+```bash
+python code/routing/select_fastest_od_pairs.py
+```
+
+This keeps the fastest valid candidate for every routable origin, preserves
+unavailable candidates in an audit table, and retains unresolved origins rather
+than assigning zero travel time or silently dropping them. The citywide status
+file contains one row per block group and is written under
+`generated_outputs/routing/selected_od_pairs/`.
 
 Set the same borough in
 `code/routing/routing_algorithm_itineraries.py` and run it against the selected
 OD table. Repeat both routing stages for all five boroughs. Large outputs are
-written under `generated_outputs/routing/` and are excluded from Git.
+written under `generated_outputs/routing/itineraries/` and are excluded from Git.
 
 ## 5. Accessibility indicators
 
@@ -191,4 +215,3 @@ tables and the concise findings summary are stored in `results/`.
 
 The borough map directory is currently empty; those maps remain a pending
 deliverable.
-

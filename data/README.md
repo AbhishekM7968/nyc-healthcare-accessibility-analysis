@@ -28,3 +28,8 @@ Large or reproducible files are not copied into the repository. The text manifes
 The workflow combines ACS demographic variables, 66 hospital facilities, MTA transit data, OpenStreetMap network data, EWM accessibility outputs, and regression-ready merged tables. See [`../docs/data_sources.md`](../docs/data_sources.md) for sources and variable definitions.
 
 Do not edit processed values manually. Changes should be made through the scripts in [`../code/`](../code/) so the final datasets remain reproducible.
+
+Full routing matrices and detailed itineraries remain excluded because they are
+large and reproducible. The compact fastest-valid OD selections are retained
+under `../generated_outputs/routing/selected_od_pairs/`; these are the direct
+inputs to travel-time mapping and the next itinerary stage.

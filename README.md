@@ -26,6 +26,15 @@ The Entropy Weight Method (EWM) combines those indicators into a single accessib
 
 The Getis-Ord Gi* analysis identifies statistically significant clusters rather than simply labeling individual block groups as high or low. Cold spots are concentrations of comparatively lower accessibility, while hot spots are concentrations of higher accessibility.
 
+### Direct travel-time comparison
+
+The revised routing workflow also produces a direct fastest-valid public-transit
+travel time for each routable block group. Its compact citywide table and five
+borough tables are available under
+[`generated_outputs/routing/selected_od_pairs/`](generated_outputs/routing/selected_od_pairs/).
+These results are kept separate from the existing EWM score: travel time is one
+direct burden measure, while EWM combines six itinerary characteristics.
+
 ### Above-average accessibility by borough
 
 ![Population with above-average accessibility by borough](figures/main/borough_above_average.png)
@@ -52,6 +61,7 @@ These are statistical associations, not causal estimates. Full results and quali
 | [`gis/`](gis/) | QGIS project files and organized spatial layers |
 | [`notebooks/`](notebooks/) | Citywide and borough EWM calculations |
 | [`results/`](results/) | Final regression tables and a findings summary |
+| [`generated_outputs/`](generated_outputs/) | Compact selected routing outputs retained for mapping and follow-up analysis |
 | [`paper/`](paper/) | Reserved for manuscript materials that can be shared |
 | [`presentation/`](presentation/) | Reserved for presentation materials that can be shared |
 
@@ -90,8 +100,19 @@ See [`docs/workflow.md`](docs/workflow.md) for the complete research sequence an
 
 ## External inputs and limitations
 
-Large GTFS archives, the OpenStreetMap PBF, OD candidate files, and full routing outputs are not stored in GitHub. Their expected filenames, sources, checksums, and placement are documented in [`data/external/`](data/external/).
+Large GTFS archives, the OpenStreetMap PBF, and full routing matrices are not
+stored in GitHub. The portable OD candidate CSV and compact selected outputs are
+included; all external download filenames, sources, checksums, and placement
+instructions are documented in [`data/external/`](data/external/).
 
-Some preparation was completed in QGIS, and the repository does not contain a complete script for hospital filtering, nearest-hospital candidate generation, fastest-OD selection, or conversion of raw itinerary segments into all six EWM indicators. These gaps are documented rather than hidden.
+Some preparation was completed in QGIS, and the repository does not contain a
+complete script for hospital filtering, nearest-hospital candidate generation,
+or conversion of raw itinerary segments into all six EWM indicators. Fastest-OD
+selection is now implemented in `code/routing/select_fastest_od_pairs.py`.
 
 The final SRA paper and presentation are not included because they were created using program resources. The corresponding folders are retained only as placeholders if those materials can be shared later.
+
+The GIS directory includes both the main accessibility project and a separately
+preserved travel-time-analysis QGIS project. See
+[`gis/project/travel_time_analysis/`](gis/project/travel_time_analysis/) for its
+dependencies and portability note.

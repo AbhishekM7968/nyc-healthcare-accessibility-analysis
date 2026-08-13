@@ -49,3 +49,21 @@ env/
 *ITINERARIES*.csv
 *TRAVEL_TIME_MATRIX*.csv
 *TIME_MATRIX*.csv
+
+# Reproducible routing work products retained locally
+/generated_outputs/routing/matrices/**
+!/generated_outputs/routing/matrices/**/
+!/generated_outputs/routing/matrices/**/README.md
+/generated_outputs/routing/itineraries/*
+!/generated_outputs/routing/itineraries/README.md
+/generated_outputs/routing/diagnostics/*
+!/generated_outputs/routing/diagnostics/README.md
+/data/external/local_inputs/*
+!/data/external/local_inputs/README.md
+
+# QGIS source layers; retain the portable candidate CSV only
+/gis/layers/routing_inputs/source_layers/
+
+# Local routing backups and Python caches
+/code/routing/archive/*
+!/code/routing/archive/README.md

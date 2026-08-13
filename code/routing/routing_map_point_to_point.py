@@ -13,8 +13,8 @@ OUTPUT_CSV = PROJECT_ROOT / "generated_outputs" / "routing" / "point_to_point_te
 
 def main() -> None:
     network_inputs = [
-        PROJECT_ROOT / "nyc.osm.pbf",
-        PROJECT_ROOT / "nyc_metro.zip",
+        PROJECT_ROOT / "data/external/local_inputs/osm/nyc.osm.pbf",
+        PROJECT_ROOT / "data/external/local_inputs/gtfs/nyc_metro.zip",
         PROJECT_ROOT / "gtfs_m.zip",
         PROJECT_ROOT / "gtfs_si.zip",
     ]

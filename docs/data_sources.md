@@ -4,8 +4,8 @@
 
 The routing workflow uses static General Transit Feed Specification (GTFS)
 archives published through MTA developer resources. The configured files cover
-NYC subway service and borough bus feeds; the Queens configuration also includes
-Long Island Rail Road service.
+NYC subway service, all five borough bus feeds, and the separate MTA Bus Company
+feed; the Queens configuration also includes Long Island Rail Road service.
 
 The archives are not committed because they are large and periodically updated.
 `data/external/gtfs/gtfs_locations.txt` records the expected filenames, service
@@ -25,6 +25,7 @@ The configured routing feeds are:
 - `gtfs_bx.zip`: Bronx bus;
 - `gtfs_q.zip`: Queens bus;
 - `gtfs_si.zip`: Staten Island bus; and
+- `gtfs_busco.zip`: MTA Bus Company routes omitted from the borough NYCT feeds;
 - `gtfslirr.zip`: Long Island Rail Road, used in the Queens configuration.
 
 Nassau and Suffolk feeds are listed in the external manifest but are not used by
@@ -63,6 +64,12 @@ description is Hospital. The borough subsets contain:
 | Queens | 11 |
 | Staten Island | 4 |
 | **NYC** | **66** |
+
+For routing, co-located records sharing the same facility identifier were
+reduced to 61 unique facilities in
+`gis/layers/hospitals/nyc_hospitals_unique_facilities.gpkg`. This avoids sending
+the same physical facility to the network multiple times while preserving the
+66-record source layer for provenance.
 
 The repository does not contain a Python or R script for hospital preparation.
 Filtering and point-layer preparation were completed in GIS. The exact download
@@ -125,17 +132,17 @@ recorded. These should be added to a future data deposit.
 
 ## Derived transit and spatial layers
 
-- `gis/layers/transit/lines/nyc_metro_lines.gpkg` is a transit-line layer used
-  for map context.
-- `gis/layers/transit/stops/nyc_stops.gpkg` contains 1,488 GTFS-derived subway
-  stop records.
+- `gis/layers/transit/lines/nyc_metro_lines.gpkg` and
+  `gis/layers/transit/lines/nyc_bus_lines.gpkg` provide subway and bus context.
+- `gis/layers/transit/stops/nyc_stops.gpkg` contains GTFS-derived subway stops,
+  while `gis/layers/transit/stops/nyc_bus_stops.gpkg` contains bus stops.
 - `gis/layers/final_outputs/ewm/` contains the mapped EWM accessibility result.
 - `gis/layers/final_outputs/hotspots/` contains the final Gi* hot spot and cold
   spot layer.
 
-These map layers do not replace the GTFS and OSM inputs used by R5. No dedicated
-bus-stop spatial layer is included. An available LIRR stop layer was excluded
-because its coordinates were implausibly close to zero.
+These map layers do not replace the GTFS and OSM inputs used by R5. An available
+LIRR stop layer was excluded because its coordinates were implausibly close to
+zero.
 
 ## Primary analysis datasets
 

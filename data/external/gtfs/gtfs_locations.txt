@@ -58,6 +58,18 @@ gtfs_si.zip
   Embedded service dates: 2026-06-28 through 2026-09-05
   SHA-256: 3a7e64f6b851f6aee796801c78c274b933974f161c255a668c83851172f38ef8
 
+gtfs_busco.zip
+  Agency/mode: MTA Bus Company
+  Coverage note: Includes B100, B103, Bx23, express-bus services, and various
+  Queens routes that are not contained in the five borough NYCT bus feeds.
+  Embedded feed version: gtfs_busco_20260611T155311Z
+  Embedded service dates: 2026-06-28 through 2026-09-05
+  SHA-256: 94933c1af1f182b3cf20a7e11881f14b9afd4a3c75ea310ee5f368b55a62c636
+  Placement: <repository-root>/data/external/local_inputs/gtfs/gtfs_busco.zip
+  Reproduction note: Download the current MTA Bus Company static feed from the
+  official MTA developer page. Record its new service dates and checksum if
+  replacing this archived version.
+
 gtfslirr.zip
   Agency/mode: MTA Long Island Rail Road
   Embedded feed version: 2026-07-02T12:06
@@ -80,9 +92,12 @@ gtfs_suffolk.zip
 Reproduction notes
 ------------------
 1. Download the required feeds from the official publisher pages.
-2. Rename them to the expected filenames above and place them at the repository
-   root, or update the routing scripts' FILES configuration to their locations.
-3. For exact historical replication, use archived files matching the checksums.
+2. Download the separate MTA Bus Company feed as well as all five borough bus
+   feeds; it is not a duplicate of the Queens or other borough feeds.
+3. Rename them to the expected filenames above and place them under
+   `data/external/local_inputs/gtfs/`, or update the routing scripts'
+   configuration to their locations.
+4. For exact historical replication, use archived files matching the checksums.
    If those exact files are deposited on Zenodo, OSF, or another permanent
    archive, add the permanent record URL to this manifest.
 

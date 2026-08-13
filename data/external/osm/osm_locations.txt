@@ -10,9 +10,9 @@ Expected filename and location
 ------------------------------
 Place the file at:
 
-    <repository-root>/nyc.osm.pbf
+    <repository-root>/data/external/local_inputs/osm/nyc.osm.pbf
 
-The current routing scripts resolve this path from the repository root.
+The current routing scripts resolve this repository-relative path automatically.
 
 Public source
 -------------

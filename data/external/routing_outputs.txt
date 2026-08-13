@@ -13,42 +13,54 @@ Detailed itineraries:
 Travel-time matrices:
     code/routing/routing_algorithm_time_matrix.py
 
+Fastest-valid OD selection:
+    code/routing/select_fastest_od_pairs.py
+
 How to regenerate
 -----------------
-1. Put nyc.osm.pbf and the required GTFS ZIP files at the repository root, as
+1. Put nyc.osm.pbf under `data/external/local_inputs/osm/` and the required GTFS
+   ZIP files under `data/external/local_inputs/gtfs/`, as
    documented in data/external/osm/osm_locations.txt and
    data/external/gtfs/gtfs_locations.txt.
 2. Ensure the borough-specific OD-pair input CSV named in each script's FILES
    dictionary is available at the configured relative path.
 3. Install the project's Python/r5py requirements and a compatible Java runtime.
-4. Set BOROUGH in the relevant script to queens, bronx, brooklyn, manhattan, or
-   staten_island.
-5. From the repository root, run:
+4. Run the matrix script with `--borough` and a departure date/time covered by
+   every configured GTFS feed.
+5. From the repository root, run, for example:
 
-       python code/routing/routing_algorithm_itineraries.py
+       python code/routing/routing_algorithm_time_matrix.py \
+         --borough queens --departure 2026-07-08T08:00:00
 
-   or:
+6. Repeat the matrix command for all five boroughs, then run:
 
-       python code/routing/routing_algorithm_time_matrix.py
+       python code/routing/select_fastest_od_pairs.py
 
-6. Repeat for each required borough. A failure for one borough does not imply
-   that another borough's input files are present or correctly configured.
+7. Use the borough fastest-valid file as the input to the detailed-itinerary
+   stage. A failure for one borough does not imply that another borough's input
+   files are present or correctly configured.
 
 Expected detailed-itinerary outputs
 -----------------------------------
-generated_outputs/routing/QUEENS_ITINERARIES_V1.csv
-generated_outputs/routing/BX_ITINERARIES_V1.csv
-generated_outputs/routing/B_2100_ITINERARIES.csv
-generated_outputs/routing/M_1200_ITINERARIES.csv
-generated_outputs/routing/SI_ITINERARIES.csv
+generated_outputs/routing/itineraries/QUEENS_ITINERARIES_V1.csv
+generated_outputs/routing/itineraries/BX_ITINERARIES_V1.csv
+generated_outputs/routing/itineraries/B_2100_ITINERARIES.csv
+generated_outputs/routing/itineraries/M_1200_ITINERARIES.csv
+generated_outputs/routing/itineraries/SI_ITINERARIES.csv
 
 Expected travel-time-matrix outputs
 -----------------------------------
-generated_outputs/routing/QUEENS_3_OD_TTM.csv
-generated_outputs/routing/BX_6300_TTM.csv
-generated_outputs/routing/B_6300_TRAVEL_TIME_MATRIX.csv
-generated_outputs/routing/M_TIME_TRAVEL_MATRIX.csv
-generated_outputs/routing/redo_travel_times_si.csv
+generated_outputs/routing/matrices/current/QUEENS_3_OD_TTM_CITYWIDE_TRANSIT.csv
+generated_outputs/routing/matrices/current/BRONX_3_OD_TTM_CITYWIDE_TRANSIT.csv
+generated_outputs/routing/matrices/current/BROOKLYN_3_OD_TTM_CITYWIDE_TRANSIT.csv
+generated_outputs/routing/matrices/current/MANHATTAN_3_OD_TTM_CITYWIDE_TRANSIT.csv
+generated_outputs/routing/matrices/current/STATEN_ISLAND_3_OD_TTM_CITYWIDE_TRANSIT.csv
+
+Committed selected-OD outputs
+-----------------------------
+generated_outputs/routing/selected_od_pairs/ALL_BLOCK_GROUP_OD_SELECTION_STATUS.csv
+generated_outputs/routing/selected_od_pairs/*_FASTEST_VALID_OD_PAIRS.csv
+generated_outputs/routing/selected_od_pairs/UNAVAILABLE_OD_CANDIDATES_AUDIT.csv
 
 Important reproducibility note
 ------------------------------
